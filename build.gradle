@@ -8,9 +8,15 @@ group = 'io.github.linktor'
 version = "0.1.0"
 
 gradlePlugin {
+    website.set("https://github.com/MariyaFilippova/linktor")
+    vcsUrl.set("https://github.com/MariyaFilippova/linktor")
+
     plugins {
         create("linktor") {
+            displayName = "linktor"
             id = "io.github.linktor"
+            description = "Checks for broken links on a website"
+            tags.addAll("verification", "test", "links", "http")
             implementationClass = "io.github.linktor.LinktorPlugin"
         }
     }
