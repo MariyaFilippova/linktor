@@ -1,9 +1,20 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '2.3.0'
     id 'application'
+    id 'java-gradle-plugin'
 }
 
+group = 'io.github.linktor'
 version = "0.1.0"
+
+gradlePlugin {
+    plugins {
+        linktor {
+            id = 'io.github.linktor'
+            implementationClass = 'io.github.linktor.LinktorPlugin'
+        }
+    }
+}
 
 application {
     mainClass = 'io.github.linktor.MainKt'
@@ -14,6 +25,7 @@ repositories {
 }
 
 dependencies {
+    implementation(gradleApi())
     implementation("io.ktor:ktor-client-core:2.3.7")
     implementation("io.ktor:ktor-client-cio:2.3.7")
     implementation("org.jsoup:jsoup:1.17.2")
